@@ -1,0 +1,841 @@
+/* ===============================================
+                2. User main dashboard
+==================================================*/
+
+/* ============ 2.1 Main layout ================== */
+
+header.userMain {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 2vh;
+
+    padding: var(--screen-padding);
+}
+
+/* ============ 2.2 Navigation bar ================== */
+
+.nav {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: var(--size-5);
+}
+
+.nav,
+.nav-wrapper {
+    background: var(--color-light-02);
+    box-shadow: 0 0 1em -.2em var(--color-accent-04);
+}
+
+.nav button {
+    width: 100%;
+    aspect-ratio: 1;
+
+    background-color: var(--color-light-02);
+    color: var(--color-dark-02);
+}
+
+.nav button * {
+    pointer-events: none;
+}
+
+.nav .logo,
+.nav button span {
+    display: none;
+}
+
+.nav .nav__btn-add {
+    align-self: center;
+    aspect-ratio: 2/1;
+
+    color: var(--color-light-01);
+    background-color: var(--color-accent-03);
+    border-radius: .8em;
+}
+
+.dark .nav__btn-add {
+    color: var(--color-light-01);
+}
+
+.nav__add {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+}
+
+.nav__add:focus .nav__opts,
+.nav__add:hover .nav__opts {
+    max-height: 50vh;
+    top: -.2em;
+}
+
+.nav__opts {
+    position: absolute;
+    width: 100%;
+    top: 0em;
+    left: 50%;
+    transform: translate(-50%, -100%);
+
+    max-height: 0;
+    overflow: hidden;
+
+    display: grid;
+    gap: .2em;
+
+    transition: .5s;
+}
+
+.nav .nav__opts-btn {
+    aspect-ratio: 2/1;
+    border-radius: 1em;
+
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: var(--size-2);
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    background-color: var(--color-accent-02);
+    color: var(--color-light-01);
+}
+
+/* ============ 2.2.2 List of buttons: add new item ================== */
+
+.buttons {
+    display: none;
+}
+
+/* ============ 2.3 User thumbnail / Weather / User preferences ================== */
+
+.profile {
+    position: relative;
+}
+
+/* profile options: logout and preferences */
+.profile .profile__opts:hover,
+.profile:focus-within .profile__opts,
+.profile:focus .profile__opts,
+.profile:hover .profile__opts {
+    transform: translate(-50%, 0) scaleY(100%);
+    z-index: 0;
+}
+
+header .profile__opts {
+    transform: translate(-50%, -100%) scaleY(0);
+    transition: .2s;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    padding-top: 1em;
+    z-index: -1;
+
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+
+    width: 70%;
+}
+
+header .profile__opts>li>button {
+    width: 100%;
+    aspect-ratio: 1;
+
+    border-radius: 100%;
+
+    font-size: var(--size-4);
+
+    display: grid;
+    place-items: center;
+
+    border: 2px solid var(--color-accent-03);
+    background-color: var(--color-light-01);
+    color: var(--color-accent-03);
+}
+
+.profile__opts-preferences {
+    position: relative;
+}
+
+.preferences__list:focus,
+.preferences__list:hover,
+.preferences__btn:focus~.preferences__list {
+    transform: scaleY(100%);
+    opacity: 1;
+}
+
+.preferences__list {
+    position: absolute;
+    right: 200%;
+    top: 0;
+    width: 80vw;
+    padding: 2em;
+    background-color: var(--color-light-01);
+
+    border-radius: .8em;
+
+    transition: .2s;
+    transform-origin: top;
+    transform: scaleY(0);
+    opacity: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+}
+
+.profile__thumb {
+    width: clamp(var(--size-7), 10vw, var(--size-8));
+    aspect-ratio: 1;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 100%;
+
+    text-align: center;
+    text-transform: uppercase;
+    font-size: var(--size-4);
+    font-weight: 900;
+
+    cursor: pointer;
+
+    background-color: var(--color-accent-03);
+    color: var(--color-light-01);
+}
+
+section.weather {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+    font-weight: 600;
+    font-size: var(--size-4);
+    text-transform: uppercase;
+
+    color: var(--color-accent-03);
+}
+
+section.weather i {
+    font-size: var(--size-6);
+}
+
+/* ============ 2.3.2 User preferences ================== */
+
+.preferences__form {
+    font-size: var(--size-3);
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.preferences__form button {
+    aspect-ratio: auto;
+}
+
+.preferences__form label {
+    flex-basis: 100%;
+
+    text-transform: uppercase;
+    font-size: var(--size-3);
+    font-weight: 700;
+}
+
+
+.preferences__form label span {
+    min-width: 60%;
+    text-align: right;
+}
+
+
+.preferences__form label input {
+    margin-top: .5em;
+    width: 100%;
+    padding: 0.5em 0.8em;
+    font-family: 'Inter', sans-serif;
+    font-size: var(--size-3);
+    border-radius: 0.6em;
+    border: 1px solid hsla(var(--color-accent-02-parts), .5);
+}
+
+.preferences__list button {
+    padding: 0.5em 1.5em;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: var(--size-2);
+    font-family: 'Inter', sans-serif;
+    border-radius: 0.5em;
+    transition: all .2s;
+    background-color: transparent;
+    border: 0.1em solid hsl(var(--color-accent-01-parts), .2);
+    box-shadow: 0 0 0 0 hsl(var(--color-accent-01-parts), 1);
+    color: var(--color-dark-01);
+}
+
+.preferences__form button {
+    margin-top: .5em;
+}
+
+.preferences__list button:focus,
+.preferences__list button:hover {
+    border: 0.1em solid hsl(var(--color-accent-01-parts), .4);
+    box-shadow: 0.2em 0.2em 0 0.1em hsl(var(--color-accent-01-parts), 1);
+}
+
+.preferences__list .modal__group {
+    margin-top: 1em;
+    gap: 2em;
+}
+
+
+/* ============ 2.4 Welcome message ================== */
+
+.userMain__welcome {
+    padding: 0 var(--screen-padding);
+
+    color: var(--color-accent-03);
+}
+
+.userMain__welcome-heading {
+    font-size: var(--size-7);
+    font-weight: 800;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.userMain__welcome-heading span {
+    display: block;
+}
+
+.userMain__welcome-quote {
+    display: none;
+}
+
+/* ============ 2.5 Links overview ================== */
+
+ul.links {
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    gap: 1em;
+
+    margin-top: 5vh;
+
+    overflow: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: inline mandatory;
+
+    padding-inline: var(--screen-padding);
+    max-width: calc(100vw - var(--scrollbar-width));
+}
+
+.links .links__placeholder {
+    outline-offset: -1px;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    gap: 1em;
+
+    max-width: 100%;
+    flex: 0 0 100%;
+
+    padding: .5em;
+
+    align-self: center;
+
+    border-radius: .8em;
+    font-weight: 500;
+}
+
+.links>.overview__links>.links__placeholder button {
+    display: inline-block;
+}
+
+.links li {
+    flex: 0 0 16%;
+
+    scroll-snap-align: center;
+    max-width: 60px;
+
+    text-align: center;
+}
+
+.links>li button i {
+    font-size: var(--size-3);
+}
+
+.links a.icon,
+.links__add-btn {
+    display: grid;
+    place-items: center;
+
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: .25em;
+
+    font-size: var(--size-7);
+
+    --_transition-scale: .2;
+    --_color: var(--color-accent-02);
+    background-color: var(--color-accent-03);
+    color: var(--color-light-01);
+    box-shadow: 0 0 .08em -0.04em var(--color-light-01), .04em .04em var(--color-accent-02);
+}
+
+.links__text {
+    font-size: var(--size-1);
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+
+    padding-top: .5em;
+
+    color: var(--color-accent-03);
+}
+
+header .links,
+.links__list-btn,
+.links__list-wrapper {
+    display: none;
+}
+
+
+.links__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1em;
+}
+
+.links__form label {
+    flex-basis: 100%;
+    text-transform: uppercase;
+    font-size: var(--size-3);
+    font-weight: 700;
+}
+
+
+.links__form input {
+    margin-top: 1em;
+}
+
+.links__form button {
+    align-self: center;
+}
+
+/* ============ 2.6 Productivity overview ================== */
+
+.overview {
+    max-width: 600px;
+    padding: var(--screen-padding);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.overview__forms {
+    margin: 1.5vh 0;
+
+    padding: 1em 0;
+
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+/* ============ 2.6.1 Overview buttons with tasks and projects counter ================== */
+
+.overview__wrapper-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.overview button,
+.card__btns button {
+    background-color: var(--color-light-01);
+    color: var(--color-dark-01);
+    box-shadow: .2em .2em 0 .1em var(--_color), 0 0 1em -.2em var(--color-light-04);
+}
+
+.overview button span {
+    background-color: var(--color-light-01);
+    box-shadow: .2em .2em 0 var(--_color), 0 0 .2em -.1em var(--_color);
+}
+
+.overview button i {
+    color: var(--color-accent-03);
+}
+
+.prod__todo {
+    --_color: var(--color-action-03);
+}
+
+.prod__inprogress {
+    --_color: var(--color-action-02);
+}
+
+.prod__done {
+    --_color: var(--color-action-01);
+}
+
+.prod__projects {
+    --_color: var(--color-accent-02);
+}
+
+.btns-group {
+    display: flex;
+    flex-basis: 40%;
+    gap: 1em;
+    flex-grow: 1;
+}
+
+.btns-group>button {
+    flex-basis: 50%;
+    flex-grow: 1;
+    min-width: 150px;
+}
+
+.btns-group button {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+    padding: 1.5em;
+    aspect-ratio: 165/60;
+
+    border-radius: .8em;
+
+    font-size: var(--size-1);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'Inter';
+}
+
+.btns-group button span {
+    display: grid;
+    place-content: center;
+
+    border-radius: .5em;
+    font-size: var(--size-3);
+    font-weight: 800;
+
+    min-width: 30px;
+    aspect-ratio: 1;
+}
+
+.btns-group button i {
+    margin-left: auto;
+    font-size: var(--size-4);
+}
+
+/* ============ 2.6.2 Tracking new task input ================== */
+
+.add-form.task__form {
+    display: flex;
+    flex-basis: 100%;
+    border-radius: .5em;
+
+    border: .1em solid hsl(var(--color-accent-01-parts), .4);
+    box-shadow: 0em 0em 0 0em hsl(var(--color-accent-01-parts), 1);
+    transition: box-shadow .2s;
+}
+
+.dark .add-form.task__form {
+    background-color: var(--color-dark-01);
+}
+
+.add-form.task__form:focus,
+.add-form.task__form:focus-within {
+    /* border: .1em solid hsl(var(--color-accent-01-parts), .4); */
+    box-shadow: .2em .2em 0 .1em hsl(var(--color-accent-01-parts), 1);
+}
+
+.add-form.task__form label,
+.add-form.task__form input {
+    width: 100%;
+    border: none;
+    box-shadow: none;
+}
+
+
+.add-form.task__form button {
+    margin: 0;
+    margin-left: auto;
+    border: none;
+    box-shadow: none;
+}
+
+.add-form.task__form input {
+
+    padding: .7em;
+}
+
+/* task clock */
+
+.overview__clock {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    flex-grow: 1;
+    flex-wrap: wrap;
+
+    padding: .325em .5em;
+    padding-right: .2em;
+    border-radius: .5em;
+    transition: .2s;
+
+    font-size: var(--size-3);
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+
+    animation: .2s grow forwards;
+
+    box-shadow: 0.2em 0.2em 0 0.1em var(--color-accent-01), 0 0 1em -0.2em var(--color-light-04);
+    background-color: var(--color-light-01);
+}
+
+.overview__clock span:first-of-type {
+    margin-left: auto;
+    flex-basis: max-content;
+    flex-shrink: 0;
+
+    background-color: hsla(var(--color-accent-02-parts), .5);
+}
+
+.overview__clock span {
+    margin-left: .2em;
+    border-radius: .5em;
+    padding: .415em .8em;
+
+    font-size: var(--size-2);
+    font-weight: 600;
+}
+
+.overview__clock span:last-of-type,
+.overview__clock span {
+    background-color: var(--color-action-03);
+    color: var(--color-accent-03);
+}
+
+.overview__clock button {
+    padding: .5em 1em;
+}
+
+/* ============ 2.6.2.1 Tracking newtask inout: Select projects and tags ================== */
+
+/* ============ 2.6.3 Lists of todo and on going tasks ================== */
+
+.overview__tasks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+
+    flex-grow: 1;
+}
+
+.overview__tasks .card {
+    border-left: .5em solid var(--_color);
+    border-bottom: .1em solid var(--_color);
+    padding: 1em;
+    border-radius: 0;
+    --_transition-scale: .5;
+}
+
+.card {
+    padding: 1.5em;
+    background-color: var(--color-light-01);
+    border-radius: .8em;
+}
+
+.card .card__title {
+    font-size: var(--size-3);
+    font-weight: 700;
+}
+
+.card .card__label {
+    --_color: var(--color-accent-02-parts);
+    color: var(--color-dark-01);
+    outline: 2px solid hsla(var(--_color, var(--color-accent-02-parts)), .5);
+    background-color: hsla(var(--_color, var(--color-accent-02-parts)), .1);
+    transition: .2s;
+
+    text-align: left;
+    text-transform: uppercase;
+    font-size: calc(var(--size-1) * .9);
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+
+    padding: 0.3em 1em;
+    border-radius: .7em;
+
+    margin-top: 1em;
+    margin-right: auto;
+    display: inline-block;
+}
+
+.card__btns {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.card__btns button {
+    margin-left: .1em;
+    border-radius: 1em;
+    box-shadow: none;
+    width: 2em;
+    aspect-ratio: 1;
+    outline: 1px solid var(--_color);
+}
+
+.card .card__label:focus,
+.card .card__label:hover {
+    background-color: hsla(var(--_color, var(--color-accent-02-parts)), .2);
+}
+
+.overview__tasks-done,
+.overview__tasks-todo,
+.overview__tasks-inprogress {
+    flex-grow: 1;
+    min-width: calc(50% - 1em);
+
+    padding: 1em;
+    border-radius: .8em;
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    background-color: var(--color-light-01);
+}
+
+.tasks__placeholder {
+    flex-grow: 1;
+    min-width: calc(50% - 1em);
+
+    padding: 1em;
+    border-radius: .8em;
+
+    outline: 1px dotted var(--color-accent-01);
+    display: grid;
+    place-content: center;
+    text-align: center;
+    gap: 1em;
+    font-weight: 500;
+}
+
+.overview__tasks-todo {
+    --_color: var(--color-action-03);
+}
+
+.overview__tasks-inprogress {
+    --_color: var(--color-action-02);
+}
+
+.overview__tasks-done {
+    --_color: var(--color-action-01);
+}
+
+.tasksPage.overview__tasks {
+    grid-row: span 2;
+}
+
+.tasksPage .overview__tasks-done,
+.tasksPage .overview__tasks-todo,
+.tasksPage .overview__tasks-inprogress {
+    min-width: 250px;
+    width: calc(33% - 1em * 2);
+}
+
+
+/* ============ 2.7 Notes overview ================== */
+
+.notes {
+    padding: var(--screen-padding);
+    margin-bottom: 4em;
+
+    color: var(--color-accent-03);
+    height: 100%;
+    min-height: 200px;
+}
+
+.notes .card {
+    margin-bottom: 1em;
+    border-radius: .8em;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.notes .notes__placeholder {
+    outline: 1px dotted var(--color-accent-01);
+    width: 100%;
+    height: 100%;
+    border-radius: .8em;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    gap: 1em;
+    font-weight: 500;
+
+    padding: 1em;
+}
+
+
+.notes .notes__title {
+    font-size: var(--size-3);
+    font-weight: 700;
+
+    text-transform: uppercase;
+    line-height: 1.2;
+
+    color: var(--color-accent-03);
+}
+
+.notes__tags {
+    font-weight: 500;
+    font-size: var(--size-2);
+    line-height: 1.2;
+    margin-top: auto;
+
+    display: flex;
+}
+
+.notes .notes__edit-btn {
+    padding: .5em;
+    border-radius: 100%;
+    background-color: transparent;
+    outline: 1px solid var(--color-accent-01);
+    margin-left: auto;
+
+    color: var(--color-dark-01);
+}
+
+.notes p.notes__note {
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+
+    font-size: var(--size-2);
+    line-height: 1.5;
+}
+
+
+ul.notes li {
+    background: var(--color-light-01);
+}
+
+ul.notes h2 {
+    color: var(--color-accent-03);
+}

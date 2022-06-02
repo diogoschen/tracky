@@ -1,0 +1,393 @@
+@media screen and (min-width:600px) {
+
+    /* ===============================================
+                2. User main dashboard
+    ==================================================*/
+
+    /* ============ 2.1 Main layout ================== */
+
+    main.userMain {
+        overflow: auto;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(clamp(500px, 40vw, 700px), 1fr));
+        grid-template-rows: min-content 1fr;
+    }
+
+    header.userMain {
+        justify-content: end;
+        gap: 2em;
+        margin: 0;
+
+        padding-inline: 2em;
+    }
+
+    main.userMain {
+        padding: var(--screen-padding);
+    }
+
+    /* ============ 2.2 Navigation bar ================== */
+
+    /* ============ 2.2.1 Navigation layout ================== */
+
+    .nav__add {
+        display: none;
+    }
+
+    .nav {
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        gap: 1em;
+
+        width: 100%;
+        min-width: 0;
+        height: 100%;
+        overflow: hidden;
+
+        transition: .2s;
+
+        background-color: inherit;
+    }
+
+    .nav-wrapper {
+        width: 4.4em;
+    }
+
+    .nav:focus-within,
+    .nav:hover {
+        max-width: 100%;
+        min-width: 250px;
+    }
+
+    .nav .logo {
+        width: 100%;
+        display: block;
+
+        word-wrap: break-word;
+        line-height: 1.5;
+
+        min-height: 25vh;
+    }
+
+    .nav button {
+        display: flex;
+        place-items: center start;
+        gap: 1em;
+
+        aspect-ratio: auto;
+        padding: 1em;
+        padding-left: 1.55em;
+
+        font-size: var(--size-4);
+    }
+
+    .nav button:focus i,
+    .nav button:hover i {
+        border-radius: .2em;
+        outline: .2em solid var(--color-accent-03);
+        outline-offset: .4em;
+    }
+
+
+    .nav button span {
+        display: inline;
+
+        font-weight: 600;
+        font-size: var(--size-3);
+
+        text-transform: uppercase;
+    }
+
+    /* ============ 2.2.2 List of buttons: add new item ================== */
+
+    .buttons {
+        display: block;
+        position: fixed;
+        bottom: 5vh;
+        right: 5vw;
+    }
+
+    .buttons__btn-add {
+        width: 50px;
+        aspect-ratio: 1;
+        border-radius: 100%;
+        display: grid;
+        place-content: center;
+        font-size: var(--size-5);
+
+        background-color: var(--color-accent-03);
+        color: var(--color-light-01);
+
+        box-shadow: 0 0 1em 0 var(--color-light-04);
+    }
+
+    .buttons__btn-list {
+        position: absolute;
+        bottom: 120%;
+
+        opacity: 0;
+        transform-origin: bottom;
+        transform: translateY(100%);
+        transition: .2s;
+
+        display: flex;
+        flex-direction: column;
+        gap: .5em;
+
+        z-index: -1;
+    }
+
+    .buttons:focus-within .buttons__btn-list {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* ============ 2.3 User thumbnail / Weather / User preferences ================== */
+
+    section.weather {
+        font-size: var(--size-3);
+        margin-left: auto;
+    }
+
+    .preferences__list {
+        width: 500px;
+    }
+
+    /* ============ 2.4 Welcome message ================== */
+
+    .userMain__welcome {
+        grid-column: 1 / -1;
+        margin-bottom: 5vh;
+    }
+
+    .userMain__welcome-quote {
+        display: block;
+        font-size: var(--size-5);
+        max-width: 800px;
+        line-height: 1.4;
+        font-weight: 500;
+    }
+
+    .userMain__welcome-author {
+        font-size: var(--size-2);
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .userMain__welcome-heading span {
+        display: inline;
+    }
+
+    .userMain__welcome-heading {
+        font-size: var(--size-9);
+    }
+
+    /* ============ 2.5 Links overview ================== */
+
+    main ul.links {
+        display: none;
+    }
+
+    header .links,
+    .links__list-btn,
+    .links__list-wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    .links {
+        max-width: 85%;
+    }
+
+    .links .flex-group button {
+        padding: .1em;
+    }
+
+    header .overview__links {
+        display: flex;
+        flex-wrap: wrap;
+
+        height: 50px;
+        margin: 0;
+        gap: 1em;
+
+        overflow: hidden;
+
+        scroll-snap-type: none;
+    }
+
+    .overview__links>li:not(.links__list-wrapper) button {
+        display: none;
+    }
+
+    .overview__links>li {
+        min-width: min-content;
+        width: 100%;
+
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 1em;
+    }
+
+    .overview__links>li:not(.links__list-wrapper) a.icon {
+        width: auto;
+        aspect-ratio: auto;
+
+        font-size: var(--size-5);
+
+        background-color: inherit;
+        color: var(--color-accent-03);
+        padding: .5em;
+        box-shadow: none;
+    }
+
+    .overview__links a.icon:focus,
+    .overview__links a.icon:hover {
+        box-shadow: none;
+    }
+
+    .overview__links {
+        position: relative;
+        display: flex;
+        justify-content: start;
+    }
+
+    .links__list-wrapper:focus-within .links__list,
+    .links__list:focus,
+    .links__list:hover {
+        opacity: 1;
+        transform: scaleY(100%);
+        transition: .2s;
+    }
+
+    .links__list {
+        position: fixed;
+
+        top: 8vh;
+        left: 10vw;
+        right: 10vw;
+        min-height: 200px;
+
+        border-radius: .8em;
+
+        padding: 2em;
+
+        background-color: var(--color-light-01);
+        opacity: 0;
+        transform-origin: top;
+        transform: scaleY(0);
+
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2em 3em;
+    }
+
+    .links__list li {
+        display: flex;
+        flex-direction: column;
+        gap: .3em;
+    }
+
+
+    .links__list li:last-of-type button {
+        background-color: transparent;
+        color: var(--color-dark-01);
+        border: 1px solid var(--_color);
+    }
+
+    .links__list .flex-group {
+        opacity: 0;
+        transition: .2s;
+    }
+
+    .links__list li .flex-group:hover,
+    .links__list li a:hover~.flex-group {
+        opacity: 1;
+    }
+
+    .links__list .flex-group i {
+        color: var(--color-dark-01);
+    }
+
+    .links__list-btn {
+        margin-right: auto;
+        color: var(--color-dark-01);
+    }
+
+    /* ============ 2.6 Productivity overview ================== */
+
+    .overview {
+        grid-template-columns: 1fr;
+        max-width: none;
+    }
+
+    .overview__wrapper-btns {
+        width: 100%;
+        max-width: none;
+    }
+
+    .overview__forms {
+        grid-column: span 2;
+    }
+
+    /* ============ 2.6.1 Overview buttons with tasks and projects counter ================== */
+
+
+
+    /* ============ 2.6.2 Tracking new task input ================== */
+
+
+
+
+
+    /* ============ 2.6.2.1 Tracking newtask inout: Select projects and tags ================== */
+
+    /* ============ 2.6.3 Lists of todo and on going tasks ================== */
+
+    .overview__tasks-inprogress,
+    .overview__tasks-todo {
+        width: calc(50% - 1em);
+    }
+
+    /* ============ 2.7 Notes overview ================== */
+
+    .notes {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1em;
+
+        padding: 1em;
+
+        align-self: start;
+        place-items: stretch;
+        margin: 0;
+    }
+
+    .notes .card {
+        aspect-ratio: 1.5;
+        margin: 0;
+    }
+
+    p.notes__note {
+        height: 80%;
+        overflow: auto;
+    }
+
+    .notes .notes__title {
+        font-size: var(--size-4);
+    }
+
+    .notes__tags {
+        font-weight: 500;
+        font-size: var(--size-2);
+    }
+
+    .notes p.notes__note {
+        font-size: var(--size-3);
+    }
+
+
+}

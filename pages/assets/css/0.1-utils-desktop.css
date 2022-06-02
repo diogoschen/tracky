@@ -1,0 +1,22 @@
+@media screen and (min-width:600px) {
+
+
+    /* Hidden options selection */
+    .options-hidden-within ul,
+    .options-hidden ul {
+        left: auto;
+        right: 0;
+    }
+
+    /* Show elements within the parent on hover */
+
+    .show-hover .show-element {
+        opacity: 0;
+        transition: opacity .2s;
+    }
+
+    .show-hover:hover .show-element {
+        opacity: 1;
+    }
+
+}

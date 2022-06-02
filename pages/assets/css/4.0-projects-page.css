@@ -1,0 +1,37 @@
+/* ===============================================
+            4. User projects page
+==================================================*/
+
+/*============4.0 General styles==================*/
+
+.projects__overview {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    padding: var(--screen-padding);
+}
+
+.projects__overview li {
+    background-color: var(--color-light-03);
+    padding: 1em;
+    display: flex;
+    gap: 1em;
+
+    justify-content: space-around;
+    border-radius: .8em;
+}
+
+
+.dark .projects__overview li {
+    background-color: var(--color-light-01);
+}
+
+.projects__overview li span:first-of-type {
+    flex: 0 1 60%;
+
+}
+
+.projects__overview li span:not(.projects__overview li span:first-of-type) {
+    flex-basis: 10%;
+}

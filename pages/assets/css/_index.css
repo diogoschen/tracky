@@ -1,0 +1,70 @@
+/* =============== INDEX ==================
+0. General Styles
+    0.1 Main layout
+    0.2 Logo
+
+
+1. Welcome Users Page
+    1.1 Main layout
+    1.2 Welcome message
+    1.3 Users list
+    1.4 Add new user form
+
+2. User main dashboard
+    2.1 Main layout
+
+    2.2 Navigation bar
+        2.2.1 Navigation layout
+        2.2.2 List of buttons: add new item
+
+    2.3 User thumbnail / Weather / User preferences
+        2.3.1 Layout
+        2.3.2 User preferences
+
+    2.4 Welcome message
+
+    2.5 Links overview
+
+    2.6 Productivity overview
+        2.6.1 Overview buttons with tasks and projects counter
+        2.6.2 Tracking new task input
+            2.6.2.1 Tracking new task input: Select projects and tags
+        2.6.3 Lists of todo and on going tasks
+
+    2.7 Notes overview
+
+3. Modal / Popup Editing
+
+    3.0 General styles
+
+    3.1 Main layout
+
+    3.2 Task modal
+
+    3.3 Notes modal
+
+4. Projects page
+
+    4.0 General styles
+
+    4.1 Main layout
+
+    ====== Index numbering ======
+
+    x.x.1 Layouts
+
+============================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('../icons/iconfont.css');
+@import url(0-reset.css);
+@import url(0-root.css);
+@import url(0.0-utils.css);
+@import url(0.1-utils-desktop.css);
+
+@import url(1.0-main-welcome-users-page.css);
+@import url(1.1-main-welcome-users-page-desktop.css);
+@import url(2.0-main-welcome-user-page.css);
+@import url(2.1-main-welcome-user-page-desktop.css);
+@import url(3.0-main-modal.css);
+@import url(4.0-projects-page.css);

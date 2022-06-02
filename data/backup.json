@@ -1,0 +1,144 @@
+{
+    "users": [
+        {
+            "id": "72bfe5d6-e27c-11ec-8fea-0242ac120002",
+            "location": "",
+            "name": "Diogo",
+            "surname": "Chen",
+            "fullName": "Diogo Chen",
+            "preferences": {
+                "darkMode": true
+            },
+            "tasks": [
+                {
+                    "id": "3c9711bc-e27e-11ec-8fea-0242ac120002",
+                    "task": "Adicionar event listeners",
+                    "project": "ce8591c6-e27d-11ec-8fea-0242ac120002",
+                    "tags": [
+                        "web development",
+                        "javascript"
+                    ],
+                    "isInProgress": false,
+                    "isChecked": false,
+                    "created": "2022-06-02T14:13:55.401Z",
+                    "timestamps": []
+                },
+                {
+                    "id": "4d298b18-e27e-11ec-8fea-0242ac120002",
+                    "task": "Terminar components",
+                    "project": "ce8591c6-e27d-11ec-8fea-0242ac120002",
+                    "tags": [],
+                    "isInProgress": true,
+                    "isChecked": false,
+                    "created": "2022-06-02T14:14:23.193Z",
+                    "timestamps": []
+                },
+                {
+                    "id": "5f1e5b32-e27e-11ec-8fea-0242ac120002",
+                    "task": "Adicionar css ao projecto",
+                    "project": "ce8591c6-e27d-11ec-8fea-0242ac120002",
+                    "tags": [],
+                    "isInProgress": false,
+                    "isChecked": false,
+                    "created": "2022-06-02T14:14:53.322Z",
+                    "timestamps": []
+                },
+                {
+                    "id": "72f9bf52-e27e-11ec-8fea-0242ac120002",
+                    "task": "Adicionar dark mode",
+                    "project": "1597660c-e27e-11ec-8fea-0242ac120002",
+                    "tags": [],
+                    "isInProgress": false,
+                    "isChecked": false,
+                    "created": "2022-06-02T14:15:26.642Z",
+                    "timestamps": []
+                },
+                {
+                    "id": "56f06fec-e295-11ec-8fea-0242ac120002",
+                    "task": "Comentar o código",
+                    "project": "ce8591c6-e27d-11ec-8fea-0242ac120002",
+                    "tags": [],
+                    "isInProgress": false,
+                    "isChecked": true,
+                    "created": "2022-06-02T16:59:17.975Z",
+                    "timestamps": []
+                }
+            ],
+            "links": [
+                {
+                    "id": "0c9b9148-e285-11ec-8fea-0242ac120002",
+                    "link": "Google",
+                    "url": "https://google.com",
+                    "category": "default"
+                },
+                {
+                    "id": "11d700a2-e285-11ec-8fea-0242ac120002",
+                    "link": "Slack",
+                    "url": "https://slack.com",
+                    "category": "default"
+                },
+                {
+                    "id": "17b8d34c-e285-11ec-8fea-0242ac120002",
+                    "link": "Gmail",
+                    "url": "https://gmail.com",
+                    "category": "default"
+                },
+                {
+                    "id": "1cf1244a-e285-11ec-8fea-0242ac120002",
+                    "link": "Produtos da Madeira",
+                    "url": "https://produtosdamadeira.pt",
+                    "category": "default"
+                }
+            ],
+            "notes": [
+                {
+                    "id": "d8ab6ad6-e27d-11ec-8fea-0242ac120002",
+                    "project": "ce8591c6-e27d-11ec-8fea-0242ac120002",
+                    "title": "Título da nota 2",
+                    "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor facilisis fringilla. Fusce a venenatis quam, in blandit ante. Mauris commodo fermentum orci id aliquam. Maecenas pulvinar diam sem, sed dignissim augue laoreet aliquet. Aliquam nisl nulla, pretium a risus quis, scelerisque pulvinar est.\n\nCurabitur feugiat, leo sit amet commodo accumsan, elit ante sagittis ipsum, eu rhoncus arcu mi vitae massa. Sed et enim velit. Pellentesque efficitur neque eget finibus congue. Nulla non auctor velit. Vestibulum rutrum ipsum at euismod hendrerit.",
+                    "tags": [
+                        "web development",
+                        "javascript"
+                    ],
+                    "created": "2022-06-02T14:11:07.773Z"
+                },
+                {
+                    "id": "1a614bb2-e27e-11ec-8fea-0242ac120002",
+                    "project": "1597660c-e27e-11ec-8fea-0242ac120002",
+                    "title": "Título da nota 1",
+                    "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempor facilisis fringilla. Fusce a venenatis quam, in blandit ante. Mauris commodo fermentum orci id aliquam. Maecenas pulvinar diam sem, sed dignissim augue laoreet aliquet. Aliquam nisl nulla, pretium a risus quis, scelerisque pulvinar est.",
+                    "tags": [
+                        "web development"
+                    ],
+                    "created": "2022-06-02T14:12:57.855Z"
+                }
+            ],
+            "projects": [
+                {
+                    "id": "ce8591c6-e27d-11ec-8fea-0242ac120002",
+                    "name": "project one",
+                    "duration": 0,
+                    "description": ""
+                },
+                {
+                    "id": "1597660c-e27e-11ec-8fea-0242ac120002",
+                    "name": "project two",
+                    "duration": 0,
+                    "description": ""
+                },
+                {
+                    "id": "18764320-e27e-11ec-8fea-0242ac120002",
+                    "name": "project three",
+                    "duration": 0,
+                    "description": ""
+                }
+            ],
+            "tags": [
+                "web development",
+                "javascript"
+            ],
+            "tracking": false
+        }
+    ],
+    "currentSession": false
+}

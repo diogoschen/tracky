@@ -1,0 +1,369 @@
+.app .hidden {
+    display: none;
+}
+
+.align-right {
+    right: 0;
+}
+
+.flex-group {
+    display: flex;
+}
+
+/* Grid elements */
+
+.grid-6 {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+}
+
+/* Hidden options selection */
+
+.options-hidden {
+    position: relative;
+}
+
+.options-hidden ul {
+    background-color: var(--color-light-01);
+    box-shadow: 0 0 1em -.5em var(--color-light-04);
+}
+
+.options-hidden-within ul,
+.options-hidden ul {
+    position: absolute;
+    top: 120%;
+    z-index: 10;
+
+    padding: 1.5em;
+    border-radius: .8em;
+
+    font-size: var(--size-3);
+
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.options-hidden-within ul {
+    position: relative;
+    top: auto;
+    padding: 0;
+}
+
+.options-hidden-within ul:hover,
+.options-hidden-within:focus-within ul {
+    padding: 1.5em 0;
+}
+
+.transition-shadow {
+    transition: .2s;
+    box-shadow: 0 0 1em -.2em var(--color-light-04);
+}
+
+.dark .transition-shadow {
+    transition: .2s;
+    box-shadow: 0 0 0 0 var(--color-light-04);
+}
+
+.transition-shadow:focus,
+.transition-shadow:hover {
+    box-shadow: calc(var(--_transition-scale, 1)*.3em) calc(var(--_transition-scale, 1)*.3em) 0 calc(var(--_transition-scale, 1)*.2em) var(--_color, var(--color-accent-01)), 0 0 1em -.2em var(--color-light-04);
+}
+
+.dark .transition-shadow:focus,
+.dark .transition-shadow:hover {
+    box-shadow: calc(var(--_transition-scale, 1)*.3em) calc(var(--_transition-scale, 1)*.3em) 0 calc(var(--_transition-scale, 1)*.2em) var(--_color, var(--color-accent-01));
+}
+
+.transition-fade-in ul {
+    transform-origin: top center;
+    transform: scaleY(0);
+    opacity: 0;
+    transition: all .2s;
+
+    max-height: 0;
+    overflow: hidden;
+}
+
+.transition-fade-in:focus ul,
+.transition-fade-in:focus-within ul,
+.transition-fade-in ul:hover {
+    transform: scaleY(1);
+    opacity: 1;
+
+    max-height: 400px;
+    overflow: auto;
+}
+
+/* Default form */
+
+.add-form {
+    text-align: center;
+}
+
+.add-form input {
+    padding: .5em;
+    border-radius: .5em;
+    transition: .2s;
+
+    font-size: var(--size-3);
+    font-family: 'Inter', sans-serif;
+    border: .1em solid hsl(var(--color-accent-01-parts), .4);
+}
+
+.add-form input:focus,
+.add-form button:focus,
+.add-form button:hover {
+    border: .1em solid hsl(var(--color-accent-01-parts), .4);
+    box-shadow: .2em .2em 0 .1em hsl(var(--color-accent-01-parts), 1);
+}
+
+.add-form button {
+    margin-top: .5em;
+    padding: .5em 1.5em;
+
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: var(--size-2);
+    font-family: 'Inter', sans-serif;
+
+    border-radius: .5em;
+    transition: all .2s;
+
+    background-color: transparent;
+    border: .1em solid hsl(var(--color-accent-01-parts), .2);
+    box-shadow: 0 0 0 0 hsl(var(--color-accent-01-parts), 1);
+    color: var(--color-dark-01);
+}
+
+.add-form button:active {
+    background-color: hsl(var(--color-accent-01-parts), .5);
+}
+
+.add-form input:focus {
+    outline: 0;
+    border: .1em solid hsl(var(--color-accent-01-parts), 1);
+}
+
+/* Default buttons */
+
+.button-default {
+    padding: .5em;
+    font-size: var(--size-4);
+    font-family: 'Inter', sans-serif;
+    border-radius: .5em;
+
+    transition: .2s;
+
+    background-color: var(--color-light-01);
+    color: var(--color-dark-01);
+    box-shadow: .2em .2em 0 .1em var(--_color);
+}
+
+.button-default:focus,
+.button-default:hover {
+    outline: .05em solid hsl(var(--color-accent-02-parts), .4);
+    box-shadow: .1em .1em 0 .1em hsl(var(--color-accent-02-parts), 1);
+}
+
+.button-minimal {
+    background-color: hsla(var(--_color, var(--color-accent-02-parts), .4));
+    color: var(--color-dark-01);
+
+    text-align: left;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    font-size: var(--size-1);
+    font-weight: 800;
+
+    padding: .4em 1em;
+    border-radius: .8em;
+
+    outline: 1px solid hsla(var(--_color, var(--color-accent-02-parts)), 1);
+    box-shadow: .1em .1em 0 .1em hsla(var(--_color, var(--color-accent-02-parts)), 1);
+    transition: box-shadow .2s;
+}
+
+.button-minimal:hover {
+    box-shadow: .2em .2em 0 .1em hsla(var(--_color, var(--color-accent-02-parts)), 1);
+}
+
+.button-plain i,
+.button-simple i,
+.button-minimal i {
+    font-size: var(--size-5);
+}
+
+.button-simple {
+    padding: 0.5em 1.5em;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: var(--size-2);
+    font-family: 'Inter', sans-serif;
+    border-radius: 0.5em;
+    transition: all .2s;
+    background-color: transparent;
+    border: 0.1em solid hsl(var(--color-accent-01-parts), .2);
+    box-shadow: 0 0 0 0 hsl(var(--color-accent-01-parts), 1);
+    color: var(--color-dark-01);
+}
+
+
+.button-plain {
+    padding: 0.5em;
+    border-radius: 100%;
+    background-color: transparent;
+}
+
+
+.button-simple:focus,
+.button-simple:hover {
+    border: 0.1em solid hsl(var(--color-accent-01-parts), .4);
+    box-shadow: 0.2em 0.2em 0 0.1em hsl(var(--color-accent-01-parts), 1);
+}
+
+/* =================================================== Scrollbar CSS */
+/* Firefox */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: var(--color-accent-03) var(--color-light-02);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: var(--scrollbar-width);
+    height: var(--scrollbar-width);
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--color-light-02);
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--color-accent-03);
+    border-radius: var(--scrollbar-width);
+    border: 3px solid var(--color-light-02);
+}
+
+
+.no-scrollbar::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.no-scrollbar {
+    scrollbar-width: none;
+}
+
+/* =================================================== Checkboxes */
+
+input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox {
+    --_width: 1.2em;
+    width: var(--_width);
+    height: var(--_width);
+    position: relative;
+    padding-left: calc(var(--_width) + .5em);
+    cursor: pointer;
+}
+
+.checkbox::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--_width);
+    aspect-ratio: 1;
+    background-color: hsla(var(--_color, var(--color-accent-02-parts)), .1);
+    border-radius: .2em;
+}
+
+input[type="checkbox"]:focus~.checkbox::before,
+.checkbox:hover::before {
+    background-color: hsla(var(--_color, var(--color-accent-02-parts)), .3);
+}
+
+input[type="checkbox"]:checked~.checkbox::before {
+    background-color: hsla(var(--_color, var(--color-accent-02-parts)), 1);
+}
+
+input[type="checkbox"]:checked~.checkbox::after {
+    display: block;
+}
+
+.checkbox::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: .4em;
+    top: .1em;
+    width: .4em;
+    height: .8em;
+    border: solid white;
+    border-width: 0 .2em .2em 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+/* =================================================== Dark mode button */
+
+.checkbox-toggle {
+    --_height: 30px;
+    height: var(--_height);
+    aspect-ratio: 2;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-color: hsla(var(--_color, var(--color-accent-02-parts)), .3);
+    border-radius: var(--_height);
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.checkbox-toggle>i {
+    margin-top: 3px;
+    font-size: var(--size-5);
+}
+
+.checkbox-toggle::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    bottom: 2px;
+    aspect-ratio: 1;
+
+    background-color: hsla(var(--_color, var(--color-accent-02-parts)), 1);
+    border-radius: 100%;
+
+    transition: transform .2s;
+}
+
+input[type="checkbox"]:checked~.checkbox-toggle::before {
+    transform: translateX(calc(100% + 3px));
+}
+
+
+/* =================================================== Animations */
+
+@keyframes grow {
+    to {
+        padding: 1em 1em;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}

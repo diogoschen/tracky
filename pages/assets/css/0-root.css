@@ -1,0 +1,66 @@
+:root {
+    --color-dark-01: hsl(236, 23%, 12%);
+    --color-dark-02: hsl(225, 14%, 11%);
+    --color-dark-03: hsl(223, 16%, 18%);
+    --color-light-01: hsl(0, 0%, 100%);
+    --color-light-01-parts: 0, 0%, 100%;
+    --color-light-02: #fefefe;
+    --color-light-03: #f5f5f5;
+    --color-light-04: hsl(223, 27%, 87%);
+    --color-accent-01: hsl(263, 94%, 69%);
+    --color-accent-01-parts: 263, 94%, 69%;
+    --color-accent-02: hsl(220, 100%, 60%);
+    --color-accent-02-parts: 220, 100%, 60%;
+    --color-accent-03: hsl(281, 49%, 15%);
+    --color-accent-04: hsl(0, 0%, 90%);
+    --color-action-01: hsl(114, 83%, 79%);
+    --color-action-01-parts: 114, 83%, 79%;
+    --color-action-02: hsl(46, 100%, 72%);
+    --color-action-02-parts: 46, 100%, 72%;
+    --color-action-03: hsl(4, 100%, 78%);
+    --color-action-03-parts: 4, 100%, 78%;
+    --bg-grad: linear-gradient(to bottom right, var(--color-light-01), var(--color-accent-04), var(--color-light-03));
+    --bg-grad-dark: linear-gradient(to bottom right, var(--color-dark-01), var(--color-accent-03), var(--color-dark-02));
+
+    --size-1: .75rem;
+    /*12*/
+    --size-2: .875rem;
+    /*14*/
+    --size-3: 1rem;
+    /*16*/
+    --size-4: 1.25rem;
+    /*20*/
+    --size-5: 1.5rem;
+    /*24*/
+    --size-6: 2rem;
+    /*32*/
+    --size-7: 2.25rem;
+    /*36*/
+    --size-8: 3rem;
+    /*48*/
+    --size-9: 4rem;
+    /*64*/
+    --scrollbar-width: 10px;
+
+    --screen-padding: 1rem;
+
+    color: var(--color-dark-01);
+}
+
+.dark {
+    --color-light-02: hsl(236, 23%, 12%);
+    --color-light-03: hsl(225, 14%, 11%);
+    --color-light-04: hsl(224, 10%, 30%);
+    --color-light-01: hsl(223, 16%, 18%);
+    --color-light-01-parts: 223, 16%, 18%;
+    --color-dark-01: hsl(0, 0%, 100%);
+    --color-dark-02: hsl(17, 78%, 98%);
+    --color-dark-03: hsl(0, 38%, 95%);
+    --color-dark-04: hsl(223, 27%, 87%);
+
+    --color-accent-04: hsl(281, 49%, 15%);
+    --color-accent-03: hsl(0, 0%, 100%);
+    --color-accent-02-parts: 263, 94%, 69%;
+    --bg-grad: linear-gradient(to bottom right, var(--color-light-01), var(--color-light-02), var(--color-light-03));
+    color: var(--color-dark-01);
+}

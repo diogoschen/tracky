@@ -1,0 +1,305 @@
+/* ===============================================
+                0. General Styles
+==================================================*/
+
+/* ============ 0.1 Main layout ================== */
+
+.app {
+    display: grid;
+    min-height: 100vh;
+
+    font-family: 'Inter', sans-serif;
+
+    background-color: var(--color-light-02);
+    color: var(--color-dark-01);
+}
+
+header {
+    grid-area: header;
+}
+
+main {
+    grid-area: main;
+}
+
+nav {
+    grid-area: nav;
+}
+
+/* ============ 0.2 General components ================== */
+
+.logo {
+    font-weight: 900;
+    font-size: var(--size-3);
+    font-family: 'Inter', sans-serif;
+
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .7em;
+
+    padding: 1em 2em;
+
+    text-shadow: .06em .06em 0 var(--color-accent-02);
+}
+
+/* ===============================================
+                1. Welcome Users Page
+==================================================*/
+
+/* ============ 1.1 Main layout ================== */
+
+.users_page {
+    grid-template-areas: "header""main""nav";
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 11fr;
+    overflow-x: hidden;
+}
+
+.user_page {
+    grid-template-areas: "nav header""nav main";
+    grid-template-columns: auto 11fr;
+    grid-template-rows: auto 11fr;
+}
+
+/* ============ 1.2 Welcome message ================== */
+
+.users__welcome {
+    text-align: center;
+    text-transform: uppercase;
+
+    font-family: 'Inter', sans-serif;
+    font-size: var(--size-6);
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+.users__welcome span {
+    display: block;
+    position: relative;
+}
+
+.users__welcome span::after {
+    content: '';
+
+    position: absolute;
+    bottom: -.15em;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 50%;
+
+    border-bottom: .2em solid var(--color-accent-02);
+}
+
+/* ============ 1.3 Users list ================== */
+
+.users {
+    display: grid;
+    place-content: start center;
+    place-items: start center;
+    grid-template-rows: auto 1fr;
+    gap: 1em;
+
+    margin-top: 20vh;
+}
+
+.users__list {
+    display: flex;
+    gap: 2em;
+
+    margin-top: 5vh;
+
+    width: 100%;
+
+    overflow: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: inline mandatory;
+
+    padding: 1em;
+}
+
+ul.links::-webkit-scrollbar,
+.users__list::-webkit-scrollbar {
+    width: 0;
+}
+
+.users__list li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+
+    scroll-snap-align: center;
+}
+
+.users__list li:first-of-type {
+    margin-left: 50vw;
+}
+
+.users__list li:last-of-type {
+    margin-right: 50vw;
+}
+
+.users button {
+    transition: transform .2s;
+}
+
+.users button:hover {
+    transform: scale(1.1);
+}
+
+.users__btn-access,
+.users__btn-add {
+    width: 60vw;
+    max-width: 350px;
+    aspect-ratio: 1;
+    border-radius: 100%;
+
+    font-size: calc(var(--size-8)*1.5);
+    font-weight: 700;
+
+    text-shadow: .04em .04em 0 var(--color-accent-02);
+}
+
+.users__btn-access {
+    background-color: var(--color-light-03);
+    box-shadow: .06em .06em .1em -.05em var(--color-accent-04);
+    color: var(--color-dark-01);
+
+    text-transform: uppercase;
+}
+
+.dark .users__btn-access {
+    background-color: var(--color-light-01);
+}
+
+.users__btn-add {
+    background-color: transparent;
+    border: .07em solid var(--color-accent-02);
+    color: var(--color-light-01);
+}
+
+.dark .users__btn-add {
+    background-color: var(--color-light-01);
+    color: var(--color-dark-01);
+}
+
+.users__btn-delete {
+    padding: 1em 3em;
+    border-radius: 1em;
+
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: var(--size-1);
+
+    color: var(--color-light-01);
+    background-color: var(--color-accent-02);
+    box-shadow: .4em .4em 1em -.5em var(--color-accent-04);
+}
+
+.dark .users__btn-delete {
+    color: var(--color-dark-01);
+    background-color: hsla(var(--color-accent-02-parts), .1);
+}
+
+/* ============ 1.4 Add new user form ================== */
+
+.newUser {
+    align-self: start;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+    gap: 2em 1em;
+
+    margin-top: 10vh;
+}
+
+.newUser__input {
+    flex: 0 0 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.newUser__input>* {
+    width: 60%;
+    max-width: 295px;
+    padding: 1em 2em;
+
+    border-radius: 1em;
+    border: none;
+
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    font-size: var(--size-3);
+    font-weight: 800;
+
+    box-shadow: .3em .3em 0 -.01em var(--color-accent-02);
+}
+
+.dark .newUser__input>* {
+    color: var(--color-light-01);
+}
+
+.newUser__btn-add,
+.newUser__btn-back {
+    font-weight: 800;
+    font-size: var(--size-1);
+    text-transform: uppercase;
+    padding: 1.5em 3em;
+
+    border-radius: 1.5em;
+    transition: box-shadow .2s;
+}
+
+.newUser__btn-add {
+    background-color: var(--color-accent-02);
+    color: var(--color-light-01);
+}
+
+.dark .newUser__btn-add {
+    background-color: var(--color-accent-02);
+    color: var(--color-dark-01);
+}
+
+.dark .newUser__btn-back,
+.newUser__btn-back {
+    background-color: transparent;
+    color: var(--color-accent-02);
+    border: .2em solid var(--color-accent-02);
+}
+
+
+.newUser__btn-add:focus,
+.newUser__btn-add:hover,
+.newUser__btn-back:focus,
+.newUser__btn-back:hover {
+    box-shadow: .3em .3em 0 -.01em var(--color-light-02);
+}
+
+.dark .newUser__btn-add:focus,
+.dark .newUser__btn-add:hover,
+.dark newUser__btn-back:focus,
+.dark .newUser__btn-back:hover {
+    box-shadow: .3em .3em 0 -.01em var(--color-dark-02);
+}
+
+/* ===============================================
+                2. User main dashboard
+==================================================*/
+
+/* ============ 2.1 User main dashboard: Main layout ================== */
+
+nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+/* ============ 2.2 Navigation bar ================== */
