@@ -2,8 +2,7 @@
 
 
     /* Hidden options selection */
-    .options-hidden-within ul,
-    .options-hidden ul {
+    .options-hidden-within ul {
         left: auto;
         right: 0;
     }

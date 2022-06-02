@@ -26,6 +26,8 @@
 .options-hidden ul {
     background-color: var(--color-light-01);
     box-shadow: 0 0 1em -.5em var(--color-light-04);
+    left: auto;
+    right: 0;
 }
 
 .options-hidden-within ul,
