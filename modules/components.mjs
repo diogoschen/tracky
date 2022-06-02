@@ -340,11 +340,11 @@ export function taskClockComponent(taskID) {
 export function overviewButtons() {
     let overview = `
         <div class="btns-group" >
-            <button type="button" class="prod__todo  transition-shadow" aria-label="Tasks to do"><span>${user.getTasksByStatus('todo').length}</span> To do <i aria-hidden="true" class="i material-symbols:chevron-right-rounded"></i></button>
-            <button type="button" class="prod__inprogress  transition-shadow" aria-label="Tasks on going"><span>${user.getTasksByStatus('progress').length}</span>On going<i aria-hidden="true" class="i material-symbols:chevron-right-rounded"></i></button>
+            <button type="button" class="prod__todo  transition-shadow" aria-label="Tasks to do" data-page="userTasksPage"><span>${user.getTasksByStatus('todo').length}</span> To do <i aria-hidden="true" class="i material-symbols:chevron-right-rounded"></i></button>
+            <button type="button" class="prod__inprogress  transition-shadow" aria-label="Tasks on going" data-page="userTasksPage"><span>${user.getTasksByStatus('progress').length}</span>On going<i aria-hidden="true" class="i material-symbols:chevron-right-rounded"></i></button>
         </div >
         <div class="btns-group">
-            <button type="button" class="prod__done  transition-shadow" aria-label="Tasks done"><span>${user.getTasksByStatus('done').length}</span> Done<i aria-hidden="true" class="i material-symbols:chevron-right-rounded"></i></button>
+            <button type="button" class="prod__done  transition-shadow" aria-label="Tasks done" data-page="userTasksPage"><span>${user.getTasksByStatus('done').length}</span> Done<i aria-hidden="true" class="i material-symbols:chevron-right-rounded"></i></button>
             <button type="button" class="prod__projects  transition-shadow" aria-label="Projects" data-page="userProjectsPage"><span>${user.projects.length}</span> Projects<i aria-hidden="true" class="i material-symbols:chevron-right-rounded"></i></button>
         </div>
     `
