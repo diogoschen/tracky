@@ -4,9 +4,15 @@
 
 /* ============ 0.1 Main layout ================== */
 
+* {
+    font-family: 'Inter', sans-serif;
+}
+
 .app {
     display: grid;
     min-height: 100vh;
+
+    font-family: 'Inter', sans-serif;
 
     background-color: var(--color-light-02);
     color: var(--color-dark-01);
@@ -22,10 +28,6 @@ main {
 
 nav {
     grid-area: nav;
-}
-
-* {
-    font-family: 'Inter', sans-serif;
 }
 
 /* ============ 0.2 General components ================== */
