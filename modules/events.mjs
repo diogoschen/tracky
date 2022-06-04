@@ -255,15 +255,11 @@ function selectOnlyOne(target, list, forceChoice = false) {
     return target.checked = true
 }
 
-function checkTracking(task, save = "true") {
-    if (task.id === user.tracking && task.isChecked && save) {
+function checkTracking(task, deleteItem = false) {
+    if (task.id === user.tracking && task.isChecked || task.id === user.tracking && deleteItem) {
         user.tracking = false;
         stopClock(task.id);
     }
-    // else if (task.id === user.tracking && !save) {
-    //     user.tracking = false;
-    //     stopClock(task.id);
-    // }
 }
 
 function updateComponents(type) {
@@ -312,7 +308,7 @@ async function submitNewItem(type, values) {
 
 function deleteUser(id, el) {
     crud.deleteUser(id);
-    el.remove();
+    el.remove(); // remover esta linha e simplesmente voltar a listar os users
 }
 
 function logoutUser() {
@@ -394,13 +390,6 @@ function newObjTemp(values, id, type) {
     temp.newObj[key] = value;
 }
 
-// export function editObjTempTimestamp(timeID, { start, finish }) {
-//     let timestamp = temp.editObj.timestamps.find(timestamp => timestamp.id === timeID);
-//     if (start) { timestamp.start = new Date(start) }
-//     if (finish) { timestamp.finish = new Date(finish) }
-//     return timestamp;
-// }
-
 export function updateClock(taskID) {
     let task = user.getItemById(taskID, 'tasks');
     let clock = document.getElementById('clock-timer');
@@ -467,10 +456,18 @@ function openNewItemPopup(type) {
 }
 
 function saveUpdateModal(id, type, data) {
+    // save the previous project before updating in case it's a task.
+    let previousProject = type === 'tasks' ? { ...user.getItemById(id, type) }.project : '';
+    // update the item (note / task / project / link)
     let updated = crud.updateKeyItem(id, type, data);
     if (type === 'tasks') {
+        // check if the updated task is currently being tracked
         checkTracking(updated);
-        updated.project ? user.getItemById(updated.project).getProjectDuration(user) : '';
+        let currentProject = updated.project;
+        // update the duration of the previous and the current project
+        crud.updateProjectDuration({ project: previousProject });
+        console.log(previousProject, currentProject)
+        crud.updateProjectDuration({ project: currentProject });
     }
 }
 
@@ -481,8 +478,10 @@ function deleteItem(id, type) {
         return updateComponents('timestamps');
     }
     if (type === 'tasks') {
-        checkTracking({ id }, false);
-        crud.updateProjectDuration(id);
+        let task = user.getItemById(id, 'tasks');
+        checkTracking(task, true);
+        crud.deleteKeyItem(id, type);
+        return crud.updateProjectDuration(task);
     }
     crud.deleteKeyItem(id, type);
 }

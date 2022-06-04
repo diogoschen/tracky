@@ -158,15 +158,17 @@ export function taskClock(taskID, start = true) {
         user.tracking = task.id;
     } else {
         task.stopTask();
-        updateProjectDuration(id);
+        updateProjectDuration(task);
         user.tracking = false;
     }
     saveDataLocally();
 }
 
-export function updateProjectDuration(id) {
-    let task = user.getItemById(id, 'tasks');
-    task.project ? user.getItemById(task.project, 'projects').getProjectDuration(user) : '';
+export function updateProjectDuration({ project }) {
+    if (project) {
+        user.getItemById(project, 'projects').getProjectDuration(user)
+        saveDataLocally();
+    }
 }
 
 // CREATE DATA
@@ -180,7 +182,6 @@ export async function newUser(newUser) {
 }
 
 export async function newKeyItem(key, values) {
-    let user = getUser();
     values.id = await getId();
     let item = user.newItem(key, values);
     saveDataLocally();
@@ -196,13 +197,11 @@ export function deleteUser(userID = currentSession) {
 }
 
 export function deleteKeyItem(id, key) {
-    let user = getUser();
     user.deleteItemById(id, key);
     saveDataLocally();
 }
 
 export function deleteTimestamp(taskID, timeID) {
-    let user = getUser();
     let task = user.getItemById(taskID, 'tasks');
     console.log(task)
     task.deleteTimestampById(timeID);

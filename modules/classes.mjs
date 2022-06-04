@@ -89,7 +89,6 @@ class Task {
     }
     startTask() {
         this.timestamps.push(new Timestamp({ start: new Date() }));
-        console.log(this.timestamps)
         this.isInProgress = true;
     }
     stopTask() {

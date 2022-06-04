@@ -325,6 +325,7 @@ export function tagsForm(tags) {
 
 export function taskClockComponent(taskID) {
     let task = user.getItemById(taskID, 'tasks');
+    console.log(task)
     let project = user.getItemById(task.project, 'projects');
     let html = `
         <section class=" transition-shadow overview__clock" id = "overview__clock" >
