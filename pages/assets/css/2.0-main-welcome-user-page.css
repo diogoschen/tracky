@@ -32,6 +32,8 @@ header.userMain {
     width: 100%;
     aspect-ratio: 1;
 
+    font-family: 'Inter', sans-serif;
+
     background-color: var(--color-light-02);
     color: var(--color-dark-02);
 }
@@ -333,6 +335,7 @@ ul.links {
 
     padding-inline: var(--screen-padding);
     max-width: calc(100vw - var(--scrollbar-width));
+    min-width: 350px;
 }
 
 .links .links__placeholder {

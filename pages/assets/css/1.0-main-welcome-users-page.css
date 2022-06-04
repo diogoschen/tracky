@@ -11,6 +11,7 @@
 .app {
     display: grid;
     min-height: 100vh;
+    min-width: 350px;
 
     font-family: 'Inter', sans-serif;
 
