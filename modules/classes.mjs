@@ -152,11 +152,11 @@ class Project {
         this.duration = duration;
         return duration
     }
-    getTasksByStatus(user, value) {
+    getTasksByStatus(user, state) {
         return this.getProjectItems(user, 'tasks').filter(task => {
-            if (value === 'done' && task.isChecked) { return task };
-            if (value === 'progress' && task.isInProgress) { return task };
-            if (value === 'todo' && !task.isInProgress && !task.isChecked) { return task };
+            if (state === 'done' && task.isChecked) { return task };
+            if (state === 'progress' && task.isInProgress) { return task };
+            if (state === 'todo' && !task.isInProgress && !task.isChecked) { return task };
         })
     };
 }

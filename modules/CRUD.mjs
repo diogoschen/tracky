@@ -151,7 +151,23 @@ export function updateKeyItem(id, key, updateValues) {
     return updated;
 }
 
+export function taskClock(taskID, start = true) {
+    let task = user.getItemById(taskID, "tasks")
+    if (start) {
+        task.startTask();
+        user.tracking = task.id;
+    } else {
+        task.stopTask();
+        updateProjectDuration(id);
+        user.tracking = false;
+    }
+    saveDataLocally();
+}
 
+export function updateProjectDuration(id) {
+    let task = user.getItemById(id, 'tasks');
+    task.project ? user.getItemById(task.project, 'projects').getProjectDuration(user) : '';
+}
 
 // CREATE DATA
 export async function newUser(newUser) {
@@ -169,18 +185,6 @@ export async function newKeyItem(key, values) {
     let item = user.newItem(key, values);
     saveDataLocally();
     return item;
-}
-
-export function taskClock(taskID, start = true) {
-    let task = user.getItemById(taskID, "tasks")
-    if (start) {
-        task.startTask();
-        user.tracking = task.id;
-    } else {
-        task.stopTask();
-        user.tracking = false;
-    }
-    saveDataLocally();
 }
 
 // DELETE DATA

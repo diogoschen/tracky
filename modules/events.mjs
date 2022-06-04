@@ -259,10 +259,11 @@ function checkTracking(task, save = "true") {
     if (task.id === user.tracking && task.isChecked && save) {
         user.tracking = false;
         stopClock(task.id);
-    } else if (task.id === user.tracking && !save) {
-        user.tracking = false;
-        stopClock(task.id);
     }
+    // else if (task.id === user.tracking && !save) {
+    //     user.tracking = false;
+    //     stopClock(task.id);
+    // }
 }
 
 function updateComponents(type) {
@@ -467,8 +468,10 @@ function openNewItemPopup(type) {
 
 function saveUpdateModal(id, type, data) {
     let updated = crud.updateKeyItem(id, type, data);
-    console.log(updated)
-    type === 'tasks' ? checkTracking(updated) : '';
+    if (type === 'tasks') {
+        checkTracking(updated);
+        updated.project ? user.getItemById(updated.project).getProjectDuration(user) : '';
+    }
 }
 
 
@@ -479,6 +482,7 @@ function deleteItem(id, type) {
     }
     if (type === 'tasks') {
         checkTracking({ id }, false);
+        crud.updateProjectDuration(id);
     }
     crud.deleteKeyItem(id, type);
 }
