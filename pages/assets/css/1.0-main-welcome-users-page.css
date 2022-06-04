@@ -8,6 +8,10 @@
     font-family: 'Inter', sans-serif;
 }
 
+body {
+    background-color: var(--color-light-02);
+}
+
 .app {
     display: grid;
     min-height: 100vh;
