@@ -355,6 +355,51 @@ input[type="checkbox"]:checked~.checkbox-toggle::before {
     transform: translateX(calc(100% + 3px));
 }
 
+/* =================================================== Label */
+
+.prod__todo {
+    --_color: var(--color-action-03);
+    --_color-parts: var(--color-action-03-parts);
+}
+
+.prod__inprogress {
+    --_color: var(--color-action-02);
+    --_color-parts: var(--color-action-02-parts);
+}
+
+.prod__done {
+    --_color: var(--color-action-01);
+    --_color-parts: var(--color-action-01-parts);
+}
+
+.prod__projects {
+    --_color: var(--color-accent-02);
+    --_color-parts: var(--color-accent-02-parts);
+}
+
+.label {
+    color: var(--color-dark-01);
+    outline: 2px solid hsla(var(--_color-parts, var(--color-accent-02-parts)), .5);
+    background-color: hsla(var(--_color-parts, var(--color-accent-02-parts)), .1);
+    transition: .2s;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: calc(var(--size-1) * .9);
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.5;
+    padding: 0.3em 1em;
+    border-radius: 0.7em;
+    display: inline-block;
+}
+
+.button-type {
+    cursor: pointer;
+}
+
+.button-type * {
+    pointer-events: none;
+}
 
 /* =================================================== Animations */
 

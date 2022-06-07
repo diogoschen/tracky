@@ -481,22 +481,6 @@ header .links,
     color: var(--color-accent-03);
 }
 
-.prod__todo {
-    --_color: var(--color-action-03);
-}
-
-.prod__inprogress {
-    --_color: var(--color-action-02);
-}
-
-.prod__done {
-    --_color: var(--color-action-01);
-}
-
-.prod__projects {
-    --_color: var(--color-accent-02);
-}
-
 .btns-group {
     display: flex;
     flex-basis: 40%;
@@ -752,6 +736,7 @@ header .links,
 }
 
 .tasksPage.overview__tasks {
+    grid-column: 1 / -1;
     grid-row: span 2;
 }
 

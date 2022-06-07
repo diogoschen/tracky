@@ -1,5 +1,5 @@
-import * as components from './modules/components.mjs';
-import * as crud from '/modules/CRUD.mjs'
+import * as components from './modules/components.js';
+import * as crud from '/modules/CRUD.js'
 
 document.addEventListener('DOMContentLoaded', start, false);
 
